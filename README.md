@@ -66,7 +66,7 @@ pipeline/
 preguntas/p1..p6    Parte C (y correr_todas.py)
 experimentos/       Parte D (d1_consumidor_muere.py, d2_reinicio_redis.py)
 resultados/         salidas de cada paso (se regeneran)
-informe/            informe en PDF
+informe.pdf         informe en PDF
 ```
 
 ## 3. Decisiones
@@ -179,6 +179,6 @@ En [`docker-compose.yml`](docker-compose.yml): `redis-server --appendonly yes --
 - B: [carga histórica](resultados/b1_carga_historica.md) · [hora en vivo](resultados/b2_vivo.md) · [verificación](resultados/b3_verificacion.md)
 - C: [P1](resultados/p1_ahora.md) · [P2](resultados/p2_ventana.md) · [P3](resultados/p3_rango.md) · [P4](resultados/p4_dos_patrones.md) · [P5](resultados/p5_hotspotting.md) · [P6](resultados/p6_propia.md) · [tiempos](resultados/tiempos.md)
 - D: [D.1](resultados/d1_consumidor_muere.md) · [D.2](resultados/d2_reinicio_redis.md)
-- Informe: [`informe/informe.pdf`](informe/informe.pdf)
+- Informe: [`informe.pdf`](informe.pdf)
 
 Medido en: Intel Core 7 240H (10 núcleos / 16 hilos), 16 GB RAM, SSD NVMe, Windows 11 + Docker Desktop (WSL2, 8 GB para Docker).
