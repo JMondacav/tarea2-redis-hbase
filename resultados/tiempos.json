@@ -1,0 +1,46 @@
+{
+  "P1 Redis (16 ultimos + top5)": {
+    "mediana_ms": 0.809,
+    "primera_ms": 9.079
+  },
+  "P1 HBase (16 scans inversos)": {
+    "mediana_ms": 35.998,
+    "primera_ms": 37.127
+  },
+  "P2 Redis (8 ventanas)": {
+    "mediana_ms": 1.488,
+    "primera_ms": 4.855
+  },
+  "P3 HBase scan por rango": {
+    "mediana_ms": 5.728,
+    "primera_ms": 6.167
+  },
+  "P3 HBase tabla entera + filtro": {
+    "mediana_ms": 531.441,
+    "primera_ms": 518.589
+  },
+  "P4 (a) catalogo Redis + 4 rangos en lecturas": {
+    "mediana_ms": 25.638,
+    "primera_ms": 28.924
+  },
+  "P4 (b) 1 scan en lecturas_tipo": {
+    "mediana_ms": 16.796,
+    "primera_ms": 19.199
+  },
+  "P5 p5_est_ts (16 rangos)": {
+    "mediana_ms": 55.718,
+    "primera_ms": 70.355
+  },
+  "P5 p5_ts_est (1 rango)": {
+    "mediana_ms": 9.629,
+    "primera_ms": 11.035
+  },
+  "P5 p5_salt (4 rangos)": {
+    "mediana_ms": 19.152,
+    "primera_ms": 17.84
+  },
+  "P6 Redis (que) + HBase (cuando)": {
+    "mediana_ms": 160.092,
+    "primera_ms": 186.063
+  }
+}

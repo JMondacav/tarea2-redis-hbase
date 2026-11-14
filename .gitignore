@@ -1,0 +1,25 @@
+# ambiente de python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# datos: NO se versionan, salen del generador con la semilla
+datos/
+*.parquet
+*.csv
+*.rdb
+*.aof
+appendonlydir/
+hbase-data/
+
+# secretos
+.env
+*.pem
+*.key
+
+# varios
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

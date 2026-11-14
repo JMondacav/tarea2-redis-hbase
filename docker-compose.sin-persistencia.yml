@@ -1,0 +1,7 @@
+# Configuracion CONTRARIA, solo para el experimento D.2 (se monta encima del compose principal):
+#   docker compose -f docker-compose.yml -f docker-compose.sin-persistencia.yml up -d --wait redis
+# Redis sin AOF, sin RDB y sin el volumen con nombre: un reinicio parte vacio.
+services:
+  redis:
+    command: ["redis-server", "--appendonly", "no", "--save", ""]
+    volumes: !reset []

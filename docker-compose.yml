@@ -1,0 +1,40 @@
+# Tarea 2 - Redis + HBase. Levantar con:  docker compose up -d --wait
+name: t2-redis-hbase
+
+services:
+  redis:
+    image: redis:7.4-alpine
+    # Persistencia elegida: AOF con fsync cada segundo y SIN snapshots RDB (ver README, "Persistencia de Redis").
+    # El stream y los pendientes de los grupos son la unica copia de lo que todavia no llega a HBase,
+    # por eso no se pueden perder en un reinicio. everysec = se pierde a lo mas ~1 s si se cae la maquina.
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec", "--save", ""]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  hbase:
+    build: ./hbase
+    image: t2-hbase:2.5
+    hostname: hbase
+    ports:
+      - "16010:16010"   # web del HMaster + /jmx
+      - "9090:9090"     # Thrift (happybase)
+    volumes:
+      - hbase-data:/data
+    healthcheck:
+      # sano = el master ve 1 RegionServer y el Thrift acepta conexiones
+      test: ["CMD-SHELL", "curl -sf 'http://localhost:16010/jmx?qry=Hadoop:service=HBase,name=Master,sub=Server' | grep -Eq '\"numRegionServers\" *: *1,' && bash -c 'echo > /dev/tcp/127.0.0.1/9090'"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 30s
+
+volumes:
+  redis-data:
+  hbase-data:
