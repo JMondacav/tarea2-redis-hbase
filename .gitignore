@@ -23,3 +23,7 @@ hbase-data/
 Thumbs.db
 .vscode/
 .idea/
+
+# informes (se entregan aparte por Aula)
+informe*.pdf
+informe*.docx
