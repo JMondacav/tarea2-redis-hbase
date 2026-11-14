@@ -1,7 +1,7 @@
 # Tarea 2 · Redis + HBase, del stream a la historia
 
 Procesamiento Masivo de Datos (ELE051-B / EIN102B) · USM 2026-2 · Paralelo 701
-Integrantes: ______________________
+Integrantes: Andres Perez, Vicente Hermosilla, Joaquin Mondaca
 
 Los eventos de la hora en vivo entran a un stream de Redis (`sensores:t2`). Un grupo de consumidores (`ingesta`) los baja a
 HBase sin perder ni duplicar nada, otro grupo (`tablero`) mantiene el estado "de ahora" en Redis, y las preguntas se
